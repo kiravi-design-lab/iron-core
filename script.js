@@ -6,6 +6,15 @@ document.addEventListener("DOMContentLoaded", function(){
   hamburger.addEventListener("click", function(){
     navMenu.classList.toggle("active");
   });
+ 
+const navLinks = document.querySelectorAll("#nav-menu a");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+  });
+});
+
 
   const dateInput = document.getElementById("startDate");
   const today = new Date();
@@ -36,3 +45,4 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
 });
+
