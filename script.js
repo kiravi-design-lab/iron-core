@@ -3,15 +3,13 @@ document.addEventListener("DOMContentLoaded", function(){
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("nav-menu");
 
-  // ハンバーガークリック
   hamburger.addEventListener("click", (e) => {
-    e.stopPropagation(); // ← 外側クリックと干渉しない
+    e.stopPropagation(); 
     navMenu.classList.toggle("active");
     hamburger.classList.toggle("active");
     document.body.classList.toggle("no-scroll");
   });
 
-  // メニュー内リンククリックで閉じる
   document.querySelectorAll(".nav-menu a").forEach(link => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("active");
@@ -20,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function(){
     });
   });
 
-  // メニュー外タップで閉じる
   document.addEventListener("click", function(e) {
 
     const isClickInsideMenu = navMenu.contains(e.target);
@@ -33,8 +30,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
   });
-
-  // ーーーーー 以下そのままでOK ーーーーー
 
   const dateInput = document.getElementById("startDate");
   const today = new Date();
@@ -65,3 +60,4 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
 });
+
