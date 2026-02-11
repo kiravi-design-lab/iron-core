@@ -3,18 +3,23 @@ document.addEventListener("DOMContentLoaded", function(){
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("nav-menu");
 
+  // ハンバーガークリック
   hamburger.addEventListener("click", function(){
     navMenu.classList.toggle("active");
+    hamburger.classList.toggle("active"); // ← 追加
   });
- 
-const navLinks = document.querySelectorAll("#nav-menu a");
 
-navLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active");
+  // メニューリンクを押したら閉じる
+  const navLinks = document.querySelectorAll("#nav-menu a");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      hamburger.classList.remove("active"); // ← 追加
+    });
   });
-});
 
+  // ーーーーー 以下そのままでOK ーーーーー
 
   const dateInput = document.getElementById("startDate");
   const today = new Date();
@@ -45,4 +50,3 @@ navLinks.forEach(link => {
   });
 
 });
-
