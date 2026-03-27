@@ -3,34 +3,29 @@ document.addEventListener("DOMContentLoaded", function(){
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("nav-menu");
 
-  hamburger.addEventListener("click", (e) => {
-    e.stopPropagation(); 
+  function closeMenu() {
+    navMenu.classList.remove("active");
+    hamburger.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  }
+
+  hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
     hamburger.classList.toggle("active");
     document.body.classList.toggle("no-scroll");
   });
 
   document.querySelectorAll(".nav-menu a").forEach(link => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      hamburger.classList.remove("active");
-      document.body.classList.remove("no-scroll");
-    });
+    link.addEventListener("click", closeMenu);
   });
 
   document.addEventListener("click", function(e) {
-
-    const isClickInsideMenu = navMenu.contains(e.target);
-    const isClickHamburger = hamburger.contains(e.target);
-
-    if (!isClickInsideMenu && !isClickHamburger) {
-      navMenu.classList.remove("active");
-      hamburger.classList.remove("active");
-      document.body.classList.remove("no-scroll");
+    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+      closeMenu();
     }
-
   });
 
+  // 日付制御
   const dateInput = document.getElementById("startDate");
   const today = new Date();
   today.setDate(today.getDate() + 3);
@@ -49,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 
+  // フォーム送信
   const form = document.getElementById("applyForm");
   const formInner = document.getElementById("formInner");
   const thanks = document.getElementById("thanksMessage");
@@ -60,4 +56,3 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
 });
-
