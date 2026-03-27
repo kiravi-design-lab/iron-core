@@ -128,3 +128,21 @@ background:#000;padding-top:100px;transition:.3s}
     grid-template-columns:1fr;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
