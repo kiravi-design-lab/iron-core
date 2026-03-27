@@ -64,7 +64,7 @@ body {
   height: 80px;
 }
 
-/* --- ロゴの修正箇所 --- */
+
 .logo {
   font-weight: 700;
   letter-spacing: 2px;
@@ -72,14 +72,13 @@ body {
 
 .logo a {
   text-decoration: none;
-  color: #e10600; /* ここで直接「赤」を指定することで、青くなるのを防ぎます */
+  color: #e10600; 
   display: inline-block;
 }
 
 .logo a:hover {
-  opacity: 0.8; /* マウスを乗せた時に少しだけ変化させる演出 */
+  opacity: 0.8; 
 }
-/* ---------------------- */
 
 .nav-menu ul {
   display: flex;
